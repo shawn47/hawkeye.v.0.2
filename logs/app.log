@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/Users/xiaoyongbo/Documents/projects/hawkeye.v.0.2/Main.py", line 4, in <module>
+    from SearchEngineNewsInfo import extractNewsByCountry
+  File "/Users/xiaoyongbo/Documents/projects/hawkeye.v.0.2/SearchEngineNewsInfo.py", line 6, in <module>
+    from Logger import logger
+  File "/Users/xiaoyongbo/Documents/projects/hawkeye.v.0.2/Logger.py", line 40, in <module>
+    logger = Logger(logname='./logs/app-log.log', loglevel=1, logger="hawkeye").getlog()
+  File "/Users/xiaoyongbo/Documents/projects/hawkeye.v.0.2/Logger.py", line 19, in __init__
+    fh = logging.FileHandler(logname)
+  File "/usr/local/Cellar/python/3.7.2/Frameworks/Python.framework/Versions/3.7/lib/python3.7/logging/__init__.py", line 1092, in __init__
+    StreamHandler.__init__(self, self._open())
+  File "/usr/local/Cellar/python/3.7.2/Frameworks/Python.framework/Versions/3.7/lib/python3.7/logging/__init__.py", line 1121, in _open
+    return open(self.baseFilename, self.mode, encoding=self.encoding)
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/xiaoyongbo/logs/app-log.log'
