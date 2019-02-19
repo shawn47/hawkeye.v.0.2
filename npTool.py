@@ -1,8 +1,6 @@
 import newspaper
 from newspaper import Article
 from NPExtractor import NPExtractor
-import pycountry
-from geograpy import extractions
 
 # target_url = "https://www.google.com.hk/search?q=china&newwindow=1&safe=strict&source=lnms&tbm=nws&sa=X&ved=0ahUKEwjEpcOBg4beAhUrllQKHdjTAIYQ_AUIDygC&biw=1280&bih=698&dpr=2&num=20&tbs=qdr:n60,sbd:1&hl=en"
 # target_url = "https://www.google.com.hk/search?q=china&safe=strict&tbm=nws&source=lnt&tbs=qdr:h&sa=X&ved=0ahUKEwjNhfiIs8TgAhUFc3AKHVIdALwQpwUIHg&biw=1280&bih=698&dpr=2"

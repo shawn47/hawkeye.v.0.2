@@ -5,6 +5,8 @@ import smtplib
 from email.header import Header
 from email.mime.text import MIMEText
 from Logger import logger
+from config import EMAIL_ADDRESS
+from config import EMAIL_PWD
 
 def emailContentGenerator(summaryInfo, rowsContent):
 	mailMsgContent = """<html><body>""" + summaryInfo + """<table border='1' cellspacing='0'>"""
@@ -26,10 +28,10 @@ def tableRowContentGenerator(title, date, url, keyWords, summary):
 
 def sendMail(subContent, bodyContent):
     server = smtplib.SMTP('smtp.163.com', 25)
-    server.login('host_to_email@163.com', 'qwer1234')
+    server.login(EMAIL_ADDRESS, EMAIL_PWD)
     msg = MIMEText(bodyContent, 'html', 'utf-8')
-    msg['From'] = 'host_to_email@163.com <host_to_mail@163.com>'
+    msg['From'] = "%s <%s>" % (EMAIL_ADDRESS, EMAIL_ADDRESS)
     msg['Subject'] = Header(subContent, 'utf8').encode()
     msg['To'] = u'Shawn <xiaoyb.shawn@protonmail.com>'
-    server.sendmail('host_to_email@163.com', ['xiaoyb.shawn@protonmail.com'], msg.as_string())
+    server.sendmail(EMAIL_ADDRESS, ['xiaoyb.shawn@protonmail.com'], msg.as_string())
     logger.info("email has been sent...")
