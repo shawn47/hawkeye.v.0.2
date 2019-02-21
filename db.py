@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import pymysql
+from datetime import datetime
 
 # cur.execute('create database if not exists fmprc_news_seed')
 # conn.select_db('fmprc_news_seed')
@@ -57,7 +58,7 @@ class CrawlerDB:
 			# for i in news_objs:
 			# 	news_list.append((i[0][0], i[0][1], i[0][2], 'not supported', i[0][5], i[1], i[0][5]))
 			for i in news_objs:
-				news_list.append((i[0], i[1], i[2], 'not supported', i[5], i[6], i[5]))
+				news_list.append((i[0], i[1], i[2], 'not supported', i[5], i[6], datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
 				 
 			cur.executemany('insert ignore into news_seeds (`title`, `news_hash`, `url`,' + 
 				'`media`, `publish_date`, `text`, `created`) ' + 
@@ -69,6 +70,26 @@ class CrawlerDB:
 		except pymysql.InternalError as error:
 			code, message = error.args
 			print(">>>>>>>>>>>>> %s %s", code, message)
+
+	def fetchNews(self, fetchEndTime):
+		result = []
+		try:
+			conn = pymysql.connect(host = 'localhost',user = 'root',passwd = 'qwer1234',db = 'fmprc_news_seed',port = 3306,charset = 'utf8')
+			cur = conn.cursor()
+				 
+			cur.execute('select * from news_seeds where created > %s', fetchEndTime)
+			rows = cur.fetchall()
+
+			conn.commit()
+			cur.close()
+			conn.close()
+			
+			result += rows
+		except pymysql.InternalError as error:
+			code, message = error.args
+			print(">>>>>>>>>>>>> %s %s", code, message)
+		finally:
+			return result
 
 	def findExpiredNews(self, target_date):
 		result = []

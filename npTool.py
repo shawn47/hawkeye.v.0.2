@@ -8,7 +8,7 @@ from NPExtractor import NPExtractor
 
 # https://www.google.com.hk/search?q=china&newwindow=1&safe=strict&source=lnms&tbm=nws&sa=X&ved=0ahUKEwjEpcOBg4beAhUrllQKHdjTAIYQ_AUIDygC&biw=1280&bih=698&dpr=2&num=20&tbs=qdr:n60,sbd:1&hl=en
 
-url = 'https://www.telegraph.co.uk/news/2019/02/18/china-will-bring-opportunities-world-economy-remains-robust/'
+url = 'https://www.channel3000.com/news/politics/national-politics/us-china-trade-talks-resume-as-deadline-looms/1028518268'
  
 a = Article(url, language='en') # Chinese
  
@@ -16,13 +16,6 @@ a.download()
 a.parse()
 print(a.authors)
 print(a.text)
-print("++++++++++++++country")
-# for country in pycountry.countries:
-#     if country.name in a.text:
-#         print(country.name)
-e = extraction.Extractor(a.text)
-e.find_entities()
-print(e.places)
 print("++++++++++++++")
 a.nlp()
 print(a.keywords)

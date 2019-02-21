@@ -8,4 +8,4 @@ URL_NEXT = "https://{domain}/search?&q={query}&source=lnms&tbm=nws&num={num}&as_
 ROOT_FILE = "/Users/xiaoyongbo/Documents/projects/hawkeye.v.0.2"
 
 EMAIL_ADDRESS = "host_to_email@163.com"
-EMAIL_PWD = "******"
+EMAIL_PWD = "qwer1234"

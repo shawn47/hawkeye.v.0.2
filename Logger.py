@@ -1,5 +1,6 @@
 #coding=utf-8
 import logging
+import os
 
 format_dict = {
    1 : logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'),
@@ -37,4 +38,5 @@ class Logger():
     def getlog(self):
         return self.logger
 
-logger = Logger(logname='./logs/app-log.log', loglevel=1, logger="hawkeye").getlog()
+# /Users/xiaoyongbo/Documents/projects/hawkeye.v.0.2
+logger = Logger(logname="/Users/xiaoyongbo/Documents/projects/hawkeye.v.0.2/logs/app-log.log", loglevel=1, logger="hawkeye").getlog()
